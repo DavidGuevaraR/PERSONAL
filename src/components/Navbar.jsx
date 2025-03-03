@@ -44,10 +44,8 @@ export default function Navbar() {
     >
       {/* Barra superior */}
       <div className="max-w-5xl mx-auto px-4 flex items-center justify-between">
-        {/* Logo o título */}
         <div className="text-fut-gold font-orbitron text-xl">DG</div>
 
-        {/* Menú hamburguesa para móvil */}
         <div className="md:hidden">
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -59,7 +57,6 @@ export default function Navbar() {
           </motion.button>
         </div>
 
-        {/* Menú horizontal para pantallas grandes */}
         <ul className="hidden md:flex justify-center gap-12 text-fut-gold font-semibold w-full">
           {menuItems.map((item) => (
             <motion.li
@@ -84,14 +81,8 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="md:hidden bg-gradient-to-r from-fut-black/95 via-fut-gray/90 to-fut-black/95 backdrop-blur-lg absolute top-0 right-0 w-3/4 h-screen z-40 border-l-2 border-fut-gold/30 shadow-fut-gold/40"
+            className="md:hidden bg-fut-black/70 backdrop-blur-lg absolute top-0 right-0 w-3/4 h-screen z-40 border-l-2 border-fut-gold/30 shadow-fut-gold/40" // Fondo semitransparente
           >
-            {/* Partículas de fondo */}
-            <Particles
-              className="absolute inset-0 z-0"
-              init={particlesInit}
-              options={particlesConfig}
-            />
             <div className="relative z-10 flex flex-col items-center justify-center h-full py-8 space-y-8">
               {menuItems.map((item) => (
                 <motion.div
@@ -106,7 +97,7 @@ export default function Navbar() {
                 >
                   <button
                     onClick={() => handleScroll(item.to)}
-                    className="text-fut-gold text-2xl font-semibold hover:text-fut-offwhite transition-colors px-8 py-4 rounded-lg hover:bg-fut-gold/30 border border-fut-gold/20 focus:outline-none"
+                    className="text-fut-gold text-2xl font-semibold hover:text-fut-offwhite transition-colors px-8 py-4 rounded-lg hover:bg-fut-gold/20 border border-fut-gold/20 focus:outline-none"
                   >
                     {item.name}
                   </button>
