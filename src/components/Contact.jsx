@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaCheckCircle, FaTimesCircle, FaInstagram, FaLinkedin } from 'react-icons/fa'; // Añadimos íconos de redes sociales
+import { FaCheckCircle, FaTimesCircle, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ from_name: '', email: '', message: '' });
@@ -44,8 +44,8 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-20 bg-fut-black" id="contact">
-      <div className="max-w-2xl mx-auto px-4 relative z-10">
+    <section className="py-20 bg-transparent" id="contact"> {/* Cambiado a bg-transparent */}
+      <div className="max-w-2xl mx-auto px-4 relative z-10"> {/* z-10 ya estaba, lo mantenemos */}
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export default function Contact() {
           className="flex justify-center gap-8 mt-12"
         >
           <motion.a
-            href="https://www.instagram.com/tu-usuario" // Reemplaza con tu URL de Instagram
+            href="https://www.instagram.com/tu-usuario" // Reemplaza con tu URL
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, color: '#FFD700' }}
@@ -153,7 +153,7 @@ export default function Contact() {
             <FaInstagram size={32} />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/tu-usuario" // Reemplaza con tu URL de LinkedIn
+            href="https://www.linkedin.com/in/tu-usuario" // Reemplaza con tu URL
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, color: '#FFD700' }}

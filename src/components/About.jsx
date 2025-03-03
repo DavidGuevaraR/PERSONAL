@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 
 export default function About() {
   return (
-    <section className="py-20 bg-fut-black" id="about">
-      <div className="max-w-5xl mx-auto px-4">
+    <section className="py-20 bg-transparent" id="about"> {/* Cambiado a bg-transparent */}
+      <div className="max-w-5xl mx-auto px-4 relative z-10"> {/* Añadido z-10 */}
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +23,7 @@ export default function About() {
             className="flex-shrink-0"
           >
             <img
-              src="/yo.jpeg" // Reemplaza con tu foto en public
+              src="/yo.jpeg" // Asegúrate de que esta imagen esté en public
               alt="David Guevara"
               className="w-64 h-64 object-cover rounded-full border-4 border-fut-gold/60 shadow-fut-gold/50"
             />

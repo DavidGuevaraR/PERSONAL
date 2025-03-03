@@ -96,9 +96,15 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="py-20 bg-fut-black" id="portfolio">
+    <motion.section
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+      className="py-20 bg-transparent" // Fondo transparente para ver partículas
+      id="portfolio"
+    >
       <h2 className="text-4xl text-fut-gold text-center font-orbitron mb-12">Portafolio</h2>
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 relative z-0">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 relative z-10">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -109,7 +115,7 @@ export default function Portfolio() {
             className="bg-gradient-to-b from-fut-gray to-fut-black/90 p-6 rounded-xl shadow-lg border border-fut-gold/40 hover:shadow-fut-gold/80 hover:scale-110 transition-all duration-300 cursor-pointer relative z-10"
             onClick={() => {
               setSelectedProject(project);
-              setCurrentImageIndex(0); // Resetear índice al abrir
+              setCurrentImageIndex(0);
             }}
           >
             <img
@@ -217,7 +223,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-fut-black/90 flex items-center justify-center z-100" // Aumentamos a z-100
+            className="fixed inset-0 bg-fut-black/90 flex items-center justify-center z-100"
             onClick={() => setFullScreenImage(null)}
           >
             <motion.div
@@ -261,6 +267,6 @@ export default function Portfolio() {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </motion.section>
   );
 }
