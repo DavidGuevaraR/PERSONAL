@@ -100,7 +100,7 @@ export default function Portfolio() {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="py-20 bg-transparent" // Fondo transparente para ver partículas
+      className="py-20 bg-transparent"
       id="portfolio"
     >
       <h2 className="text-4xl text-fut-gold text-center font-orbitron mb-12">Portafolio</h2>
@@ -223,7 +223,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-fut-black/90 flex items-center justify-center z-100"
+            className="fixed inset-0 bg-fut-black/90 flex items-center justify-center z-[9999]"
             onClick={() => setFullScreenImage(null)}
           >
             <motion.div
@@ -231,7 +231,8 @@ export default function Portfolio() {
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
               transition={{ duration: 0.4 }}
-              className="relative max-w-[90vw] max-h-[90vh] z-100"
+              className="relative max-w-[90vw] max-h-[90vh] z-[10000]"
+              onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={fullScreenImage}
@@ -240,14 +241,14 @@ export default function Portfolio() {
               />
               <motion.button
                 whileHover={{ scale: 1.2 }}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-fut-gold/80 p-2 rounded-full text-fut-black hover:bg-fut-gold transition-colors z-110"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-fut-gold/80 p-2 rounded-full text-fut-black hover:bg-fut-gold transition-colors z-[10010]"
                 onClick={(e) => { e.stopPropagation(); prevImage(); }}
               >
                 <FaArrowLeft />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.2 }}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-fut-gold/80 p-2 rounded-full text-fut-black hover:bg-fut-gold transition-colors z-110"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-fut-gold/80 p-2 rounded-full text-fut-black hover:bg-fut-gold transition-colors z-[10010]"
                 onClick={(e) => { e.stopPropagation(); nextImage(); }}
               >
                 <FaArrowRight />
@@ -255,12 +256,12 @@ export default function Portfolio() {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="absolute top-4 right-4 text-fut-gold hover:text-fut-offwhite z-110"
+                className="absolute top-4 right-4 text-fut-gold hover:text-fut-offwhite z-[10010]"
                 onClick={() => setFullScreenImage(null)}
               >
                 <FaTimes size={32} />
               </motion.button>
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-fut-offwhite text-center z-110">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-fut-offwhite text-center z-[10010]">
                 {currentImageIndex + 1} / {selectedProject.images.length}
               </div>
             </motion.div>
@@ -269,4 +270,4 @@ export default function Portfolio() {
       </AnimatePresence>
     </motion.section>
   );
-}
+} 
