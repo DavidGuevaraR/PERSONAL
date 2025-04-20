@@ -144,7 +144,7 @@ export default function Contact() {
           className="flex justify-center gap-8 mt-12"
         >
           <motion.a
-            href="https://www.instagram.com/tu-usuario" // Reemplaza con tu URL
+            href="https://www.instagram.com/daviidguevara7" 
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, color: '#FFD700' }}
@@ -153,7 +153,7 @@ export default function Contact() {
             <FaInstagram size={32} />
           </motion.a>
           <motion.a
-            href="https://www.linkedin.com/in/tu-usuario" // Reemplaza con tu URL
+            href="https://www.linkedin.com/in/soydavidguevara" 
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2, color: '#FFD700' }}
