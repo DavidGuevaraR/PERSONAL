@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaTimes, FaFigma, FaGithub } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaTimes, FaFigma, FaGithub,FaLink } from 'react-icons/fa';
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -11,48 +11,50 @@ export default function Portfolio() {
     {
       title: 'ID TECH',
       shortDesc: 'Sistema web para emisión de DTE en El Salvador con integración al Ministerio de Hacienda.',
-      fullDesc: 'ID TECH es un innovador sistema web desarrollado para la emisión de Documentos Tributarios Electrónicos (DTE) en El Salvador, cumpliendo con las normativas fiscales vigentes. Esta plataforma está diseñada para emitir los 11 documentos tributarios oficiales, y cuenta con una estructura de cuatro roles de usuarios, destacándose uno con las máximas atribuciones y permisos. El sistema se comunica de manera segura y eficiente con el Ministerio de Hacienda mediante su API oficial. Mi función principal fue desarrollar de manera integral el frontend del sistema, incluyendo la creación y cálculo exacto de los documentos tributarios. Entre las funcionalidades desarrolladas se encuentran: Gestión de Inventarios, Gestión de Clientes, Administración de DTE Generados, y Gestión de Usuarios.',
-      tech: 'Vite, React, Node.js, Tailwind CSS',
-      images: ['/idtech.jpeg', '/idtech2.png'],
-      links: [
+      fullDesc: 'ID TECH es un innovador sistema web desarrollado para la emisión de Documentos Tributarios Electrónicos (DTE) en El Salvador, cumpliendo con las normativas fiscales vigentes. Esta plataforma está diseñada para emitir los 11 documentos tributarios oficiales, y cuenta con una estructura de cuatro roles de usuarios, destacándose uno con las máximas atribuciones y permisos. El sistema se comunica de manera segura y eficiente con el Ministerio de Hacienda mediante su API oficial. Como Desarrollador Frontend, mi función principal fue el desarrollo integral del frontend del sistema, lo que incluyó la implementación del diseño de la interfaz gráfica de usuario. Como Diseñador UX/UI, me encargué del diseño de su arquitectura visual y funcional. Además, también fui responsable de la creación y cálculo preciso de los documentos tributarios. Entre las funcionalidades desarrolladas se encuentran: Gestión de Inventarios, Gestión de Clientes, Administración de DTE Generados, y Gestión de Usuarios.',
+      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript',
+      images: ['/idtech.png', '/idtech2.png'],
+      links: [{ /*
         { name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> },
-        { name: 'GitHub', url: 'https://github.com/your-repo', icon: <FaGithub /> },
+        { name: 'GitHub', url: 'https://github.com/your-repo', icon: <FaGithub /> },*/}
       ],
     },
     {
       title: 'Gestión de Inventario en Bodegas',
       shortDesc: 'Sistema web para controlar inventarios en bodegas de materiales de construcción en Nevada, EE.UU.',
       fullDesc: 'Desarrollé un sistema web para gestionar de manera eficiente el inventario de productos en bodegas de una empresa de material de construcción ubicada en Nevada, Estados Unidos. Este sistema permite registrar y controlar la entrada y salida de productos en las bodegas, optimizando la gestión de inventarios y asegurando la disponibilidad de materiales necesarios. Características clave: Registro de Productos, Control de Entrada y Salida, Informes y Análisis, y Gestión de Usuarios. Aunque estoy autorizado a mencionar la naturaleza del sistema, debo mantener la confidencialidad de los detalles específicos, como su nombre, enlaces e imágenes, debido a una cláusula de privacidad firmada con la empresa.',
-      tech: 'Vite, React, Node.js, Tailwind CSS',
+      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript',
       images: ['/inventario.png'],
-      links: [{ name: 'GitHub', url: 'https://github.com/your-repo', icon: <FaGithub /> }],
+      links: [],
     },
     {
-      title: 'Sistema Web de Lista de Tareas',
-      shortDesc: 'Aplicación web para gestionar tareas con tres roles de usuario.',
-      fullDesc: 'Desarrollé una página web diseñada para la creación y gestión de listas de tareas, optimizada para mejorar la productividad y organización de sus usuarios. Este sistema cuenta con una estructura de tres roles distintos, uno de los cuales posee las atribuciones máximas dentro de la plataforma. Características clave: Creación y Gestión de Tareas, Roles de Usuario, y Visualización Intuitiva.',
-      tech: 'Vite, React, Node.js, Tailwind CSS',
-      images: ['/todolist.png', '/todolist2.png'],
-      links: [{ name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> }],
+      title: "Marketplace UCA",
+      shortDesc: "Diseño UX/UI y desarrollo frontend de la landing page para estudiantes de la UCA.",
+      fullDesc: "Creación de Marketplace UCA, una landing page para conectar a estudiantes de la Universidad Centroamericana mediante un mercado de recursos. Como Diseñador UX/UI: Diseñé una interfaz intuitiva y atractiva en Figma. Como Desarrollador Frontend: Implementé la página con React y Framer Motion, asegurando responsividad (móviles, tablets, laptops) y rendimiento con Tailwind CSS.",
+      tech: "Vite, React, Framer Motion, Tailwind CSS, JavaScript, Figma",
+      images: ["/mk1.png", "/mk2.png", "/mk3.png"],
+      links: [
+        { name: "Figma", url: "https://www.figma.com/design/pWIveUZJhTIACWQQsj4wPG/MarketPlace-UCA?node-id=72-2&t=Wue3x27DVjDN0XVp-1", icon: <FaFigma /> },
+        { name: "Landing Page", url: "https://marketplace-uca.vercel.app/", icon: <FaLink /> }
+      ]
     },
     {
       title: 'Rediseño de E-Commerce Car Connect',
       shortDesc: 'Rediseño UX/UI y desarrollo frontend de la página de inicio de Car Connect.',
       fullDesc: 'Participé en el rediseño del sitio web de ventas de automóviles, Car Connect. El sitio original, aunque funcional, contaba con una interfaz rústica y un diseño UX deficiente tanto para los clientes como para los administradores. En este proyecto, desempeñé el rol de Dev-Designer. Como Diseñador UX/UI: Realicé el nuevo diseño de la página utilizando Figma, abarcando todas las posibles vistas, incluyendo errores, acciones y las interfaces correspondientes a sus tres roles existentes. Como Desarrollador Frontend: Desarrollé la página de inicio (home page) del sitio Car Connect, asegurando una experiencia de usuario optimizada y visualmente atractiva. El resto de la interfaz fue implementado por el equipo de desarrolladores.',
-      tech: 'Vite, React, Node.js, Tailwind CSS, Figma',
+      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript, Figma',
       images: ['/car4.png', '/car.png', '/car2.png', '/car3.png'],
       links: [
-        { name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> },
-        { name: 'GitHub', url: 'https://github.com/your-repo', icon: <FaGithub /> },
+        { name: 'Figma', url: 'https://www.figma.com/design/JUfvCtXKwkI5oMn24InYRr/E-Commerce-2.0?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> }
       ],
     },
     {
       title: 'Noctua UCA',
       shortDesc: 'App móvil Android para acompañamiento estudiantil.',
       fullDesc: 'Aplicación móvil para Android orientada al acompañamiento estudiantil. Esta app permite la creación de un perfil estudiantil donde se pueden agregar datos relevantes como el nivel de carrera, las materias a cursar, y la carrera del estudiante. Su objetivo principal es conectar a estudiantes con intereses y datos afines, facilitando así la comunicación entre ellos. Mi rol en este proyecto fue de Dev-Designer. Como Diseñador UX/UI: Creación de la interfaz gráfica de la aplicación utilizando Figma, asegurando una experiencia de usuario intuitiva y atractiva. Como Desarrollador Frontend: Implementación de la interfaz gráfica de la aplicación utilizando Android Studio y Jetpack Compose, garantizando una experiencia fluida y coherente.',
-      tech: 'Android Studio, Jetpack Compose, Figma',
+      tech: 'Android Studio, Kotlin, Jetpack Compose, Figma',
       images: ['/noctua.png', '/noctua2.png', '/noctua3.png'],
-      links: [{ name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> }],
+      links: [{ name: 'Figma', url: 'https://www.figma.com/design/0tox0tVxwUW1XTaB6uC8qC/Noctua-UCA-UI?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> }],
     },
     {
       title: 'Diseño de Sitio Web ACEUCA',
@@ -60,19 +62,27 @@ export default function Portfolio() {
       fullDesc: 'Participé en el diseño del sitio web de la Asociación Cooperativa de Ahorro, Crédito y Consumo de Empleados de la Universidad Centroamericana José Simeón Cañas de R.L. (ACEUCA). Este sitio web está destinado a gestionar los préstamos para los empleados de la Universidad UCA, optimizando y facilitando el proceso. Mi rol como Diseñador UX/UI incluyó: Diseño integral de la interfaz gráfica utilizando Figma, abarcando todas las vistas necesarias para una experiencia de usuario intuitiva y eficiente. Colaboración estrecha con el equipo de desarrolladores para asegurar que el diseño se implementara de manera precisa y funcional.',
       tech: 'Figma',
       images: ['/cuca.png', '/cuca2.png'],
-      links: [{ name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> }],
+      links: [{ name: 'Figma', url: 'https://www.figma.com/design/HUpEd3UrDnuUH1g6ppo4m8/Prestamos-ACEUCA?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> }],
+    },
+    {
+      title: 'Sistema Web de Lista de Tareas',
+      shortDesc: 'Aplicación web para gestionar tareas con tres roles de usuario.',
+      fullDesc: 'Desarrollé una página web diseñada para la creación y gestión de listas de tareas, optimizada para mejorar la productividad y organización de sus usuarios. Este sistema cuenta con una estructura de tres roles distintos, uno de los cuales posee las atribuciones máximas dentro de la plataforma. Características clave: Creación y Gestión de Tareas, Roles de Usuario, y Visualización Intuitiva.',
+      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript',
+      images: ['/todolist.png', '/todolist2.png'],
+      links: [],
     },
     {
       title: 'ORDINO',
       shortDesc: 'Sistema web para gestión médica de clínicas privadas.',
       fullDesc: 'Sistema web para gestionar clínicas, este sistema contiene gestión de pacientes, historial médico y gestión de usuarios del sistema, tiene 3 roles. Mi papel en este proyecto fue de Dev-Designer. Como Diseñador UX/UI: Creación de la interfaz gráfica de usuario en Figma de todas las vistas del sistema tanto para pantallas grandes como para pantallas móviles. Como Desarrollador Frontend: Creación de la interfaz gráfica del sistema.',
-      tech: 'Vite, React, Node.js, Tailwind CSS, Figma',
+      tech: 'Vite, React, Node.js, Tailwind CSS,, JavaScript, Figma',
       images: ['/ordino.png', '/ordino2.png', '/ordino3.png'],
       links: [
-        { name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> },
-        { name: 'GitHub', url: 'https://github.com/your-repo', icon: <FaGithub /> },
+        { name: 'Figma', url: 'https://www.figma.com/design/RuM0YJIEcCLXceycux78Dn/Ordino-UI?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> },
       ],
     },
+
   ];
 
   const nextImage = () => {
