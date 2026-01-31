@@ -125,7 +125,7 @@ export default function Hero() {
           onClick={handleExploreClick}
           className="mt-8 px-8 py-3 bg-fut-gold text-fut-black rounded-full font-semibold text-lg shadow-lg hover:shadow-fut-gold/70 transition-shadow"
         >
-          Explora mi trabajo
+          Explora mi trabajo.
         </motion.button>
       </motion.div>
     </motion.section>
