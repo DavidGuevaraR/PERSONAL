@@ -11,6 +11,11 @@ export default function Portfolio() {
 
   const projectMeta = [
     {
+      id: 'dashboard',
+      images: ['/dash1.png', '/dash2.jpeg'],
+      links: [],
+    },
+    {
       id: 'sales',
       images: ['/Adv1.png', '/Adv2.png', '/Adv3.png', '/Adv4.png'],
       links: [

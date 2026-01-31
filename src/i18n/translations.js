@@ -57,6 +57,14 @@ const translations = {
       viewMore: 'Ver más →',
       fullscreenAlt: 'Imagen de proyecto en pantalla completa',
       projects: {
+        dashboard: {
+          title: 'Dashboard de análisis de muestras',
+          shortDesc:
+            'Dashboard para análisis de muestras con visualización de datos a gran escala.',
+          fullDesc:
+            'Como Diseñador UX/UI y Desarrollador Frontend, diseñé y construí un prototipo funcional de un dashboard de análisis de muestras orientado a ciencia de datos y negocios, capaz de procesar y visualizar volúmenes de datos a escala de millones. Desarrollé el proyecto integrando Laravel y Blade para la estructura, junto con Echarts para la generación de gráficas complejas y de alto rendimiento. Implementé toda la lógica de interacción mediante JavaScript y personalicé la interfaz utilizando CSS puro, logrando una herramienta técnica robusta que combina un diseño limpio y profesional con la capacidad de transformar cifras masivas en información estratégica accionable.',
+          tech: 'Laravel, Blade, Echarts, JavaScript, CSS',
+        },
         sales: {
           title: 'Sistema Integral de Gestión de Ventas y Facturación Electronica',
           shortDesc: 'Sistema integral de ventas con módulos de facturación electrónica y gestión administrativa.',
@@ -197,6 +205,14 @@ const translations = {
       viewMore: 'View more →',
       fullscreenAlt: 'Project image in full screen',
       projects: {
+        dashboard: {
+          title: 'Sample Analysis Dashboard',
+          shortDesc:
+            'Sample analysis dashboard with large-scale data visualization.',
+          fullDesc:
+            'As a UX/UI Designer and Frontend Developer, I designed and built a functional prototype of a sample analysis dashboard for data science and business, capable of processing and visualizing data volumes at the scale of millions. I developed the project by integrating Laravel and Blade for structure, together with Echarts for high‑performance complex charts. I implemented all interaction logic in JavaScript and customized the interface using plain CSS, delivering a robust technical tool that combines a clean, professional design with the ability to turn massive figures into actionable strategic insights.',
+          tech: 'Laravel, Blade, Echarts, JavaScript, CSS',
+        },
         sales: {
           title: 'Integrated Sales and Electronic Invoicing Management System',
           shortDesc:
