@@ -1,6 +1,19 @@
 import { motion } from 'framer-motion';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function About() {
+  const { t } = useLanguage();
+  const renderParts = (parts) =>
+    parts.map((part, index) =>
+      part.highlight ? (
+        <span key={index} className="text-fut-gold">
+          {part.text}
+        </span>
+      ) : (
+        <span key={index}>{part.text}</span>
+      )
+    );
+
   return (
     <section className="py-20 bg-transparent" id="about"> {/* Cambiado a bg-transparent */}
       <div className="max-w-5xl mx-auto px-4 relative z-10"> {/* Añadido z-10 */}
@@ -11,7 +24,7 @@ export default function About() {
           viewport={{ once: true }}
           className="text-4xl text-fut-gold text-center font-orbitron mb-12"
         >
-          Sobre mí
+          {t.about.title}
         </motion.h2>
         <div className="flex flex-col md:flex-row gap-8 items-center">
           {/* Fotografía */}
@@ -38,13 +51,13 @@ export default function About() {
             className="text-fut-offwhite text-lg leading-relaxed font-sans"
           >
             <p className="mb-6">
-              Soy <span className="text-fut-gold">David Guevara</span>, un desarrollador web y diseñador UX/UI apasionado por crear experiencias digitales que combinen funcionalidad y estética. Mi trayectoria incluye proyectos como <span className="text-fut-gold">ID TECH</span>, donde desarrollé sistemas web complejos, y <span className="text-fut-gold">Noctua UCA</span>, una app móvil para estudiantes. Domino tecnologías como Vite, React, Node.js, Tailwind CSS, y Figma, siempre buscando soluciones innovadoras.
+              {renderParts(t.about.paragraph1)}
             </p>
             <p className="mb-6">
-              Más allá del diseño web, he explorado otras áreas: fui <span className="text-fut-gold">analista BI junior</span> usando Power BI y Excel para analizar datos CSV, tengo interés en la <span className="text-fut-gold">ciberseguridad forense</span>, y trabajé como <span className="text-fut-gold">técnico en electrónica</span> gracias a mi formación técnica. Estas experiencias enriquecen mi enfoque multidisciplinario y mi capacidad para resolver problemas.
+              {renderParts(t.about.paragraph2)}
             </p>
             <p>
-              En lo personal, soy un entusiasta del <span className="text-fut-gold">deporte</span> (natación, gimnasio, calistenia, taekwondo, basketball) y la <span className="text-fut-gold">música</span>. Toco guitarra, bajo, batería, piano y zampoña, y tengo experiencia en producción musical con mis propios instrumentos y equipo de grabación. Mi motivación es transformar ideas en realidades, ya sea a través de código, diseño o creatividad pura. ¡Conéctate conmigo para explorar posibilidades!
+              {renderParts(t.about.paragraph3)}
             </p>
           </motion.div>
         </div>

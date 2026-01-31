@@ -1,89 +1,91 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FaArrowLeft, FaArrowRight, FaTimes, FaFigma, FaGithub,FaLink } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight, FaTimes, FaFigma, FaLink } from 'react-icons/fa';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [fullScreenImage, setFullScreenImage] = useState(null);
+  const { t } = useLanguage();
 
-  const projects = [
+  const projectMeta = [
     {
-      title: 'ID TECH',
-      shortDesc: 'Sistema web para emisión de DTE en El Salvador con integración al Ministerio de Hacienda.',
-      fullDesc: 'ID TECH es un innovador sistema web desarrollado para la emisión de Documentos Tributarios Electrónicos (DTE) en El Salvador, cumpliendo con las normativas fiscales vigentes. Esta plataforma está diseñada para emitir los 11 documentos tributarios oficiales, y cuenta con una estructura de cuatro roles de usuarios, destacándose uno con las máximas atribuciones y permisos. El sistema se comunica de manera segura y eficiente con el Ministerio de Hacienda mediante su API oficial. Como Desarrollador Frontend, mi función principal fue el desarrollo integral del frontend del sistema, lo que incluyó la implementación del diseño de la interfaz gráfica de usuario. Como Diseñador UX/UI, me encargué del diseño de su arquitectura visual y funcional. Además, también fui responsable de la creación y cálculo preciso de los documentos tributarios. Entre las funcionalidades desarrolladas se encuentran: Gestión de Inventarios, Gestión de Clientes, Administración de DTE Generados, y Gestión de Usuarios.',
-      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript',
-      images: ['/idtech.png', '/idtech2.png'],
-      links: [{ /*
-        { name: 'Figma', url: 'https://www.figma.com/your-link', icon: <FaFigma /> },
-        { name: 'GitHub', url: 'https://github.com/your-repo', icon: <FaGithub /> },*/}
+      id: 'sales',
+      images: ['/Adv1.png', '/Adv2.png', '/Adv3.png', '/Adv4.png'],
+      links: [
+        {
+          name: 'Figma',
+          url: 'https://www.figma.com/design/YKQnfWoaV4xI1jq5BU6afA/Sistemas-de-ventas-con-facturaci%C3%B3n-electr%C3%B3nica.?node-id=192-2308&t=eQNuE4KrwbqV2ci8-1',
+          icon: <FaFigma />,
+        },
+      ],
+    },
+    { id: 'idtech', images: ['/idtech.png', '/idtech2.png'], links: [] },
+    { id: 'inventory', images: ['/inventario.png'], links: [] },
+    {
+      id: 'marketplace',
+      images: ['/mk1.png', '/mk2.png', '/mk3.png'],
+      links: [
+        {
+          name: 'Figma',
+          url: 'https://www.figma.com/design/pWIveUZJhTIACWQQsj4wPG/MarketPlace-UCA?node-id=72-2&t=Wue3x27DVjDN0XVp-1',
+          icon: <FaFigma />,
+        },
+        { name: 'Landing Page', url: 'https://marketplace-uca.vercel.app/', icon: <FaLink /> },
       ],
     },
     {
-      title: 'Gestión de Inventario en Bodegas',
-      shortDesc: 'Sistema web para controlar inventarios en bodegas de materiales de construcción en Nevada, EE.UU.',
-      fullDesc: 'Desarrollé un sistema web para gestionar de manera eficiente el inventario de productos en bodegas de una empresa de material de construcción ubicada en Nevada, Estados Unidos. Este sistema permite registrar y controlar la entrada y salida de productos en las bodegas, optimizando la gestión de inventarios y asegurando la disponibilidad de materiales necesarios. Características clave: Registro de Productos, Control de Entrada y Salida, Informes y Análisis, y Gestión de Usuarios. Aunque estoy autorizado a mencionar la naturaleza del sistema, debo mantener la confidencialidad de los detalles específicos, como su nombre, enlaces e imágenes, debido a una cláusula de privacidad firmada con la empresa.',
-      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript',
-      images: ['/inventario.png'],
-      links: [],
-    },
-    {
-      title: "Marketplace UCA",
-      shortDesc: "Diseño UX/UI y desarrollo frontend de la landing page para estudiantes de la UCA.",
-      fullDesc: "Creación de Marketplace UCA, una landing page para conectar a estudiantes de la Universidad Centroamericana mediante un mercado de recursos. Como Diseñador UX/UI: Diseñé una interfaz intuitiva y atractiva en Figma. Como Desarrollador Frontend: Implementé la página con React y Framer Motion, asegurando responsividad (móviles, tablets, laptops) y rendimiento con Tailwind CSS.",
-      tech: "Vite, React, Framer Motion, Tailwind CSS, JavaScript, Figma",
-      images: ["/mk1.png", "/mk2.png", "/mk3.png"],
-      links: [
-        { name: "Figma", url: "https://www.figma.com/design/pWIveUZJhTIACWQQsj4wPG/MarketPlace-UCA?node-id=72-2&t=Wue3x27DVjDN0XVp-1", icon: <FaFigma /> },
-        { name: "Landing Page", url: "https://marketplace-uca.vercel.app/", icon: <FaLink /> }
-      ]
-    },
-    {
-      title: 'Rediseño de E-Commerce Car Connect',
-      shortDesc: 'Rediseño UX/UI y desarrollo frontend de la página de inicio de Car Connect.',
-      fullDesc: 'Participé en el rediseño del sitio web de ventas de automóviles, Car Connect. El sitio original, aunque funcional, contaba con una interfaz rústica y un diseño UX deficiente tanto para los clientes como para los administradores. En este proyecto, desempeñé el rol de Dev-Designer. Como Diseñador UX/UI: Realicé el nuevo diseño de la página utilizando Figma, abarcando todas las posibles vistas, incluyendo errores, acciones y las interfaces correspondientes a sus tres roles existentes. Como Desarrollador Frontend: Desarrollé la página de inicio (home page) del sitio Car Connect, asegurando una experiencia de usuario optimizada y visualmente atractiva. El resto de la interfaz fue implementado por el equipo de desarrolladores.',
-      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript, Figma',
+      id: 'carconnect',
       images: ['/car4.png', '/car.png', '/car2.png', '/car3.png'],
       links: [
-        { name: 'Figma', url: 'https://www.figma.com/design/JUfvCtXKwkI5oMn24InYRr/E-Commerce-2.0?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> }
+        {
+          name: 'Figma',
+          url: 'https://www.figma.com/design/JUfvCtXKwkI5oMn24InYRr/E-Commerce-2.0?m=auto&t=t15u2x0egpeZruIy-1',
+          icon: <FaFigma />,
+        },
       ],
     },
     {
-      title: 'Noctua UCA',
-      shortDesc: 'App móvil Android para acompañamiento estudiantil.',
-      fullDesc: 'Aplicación móvil para Android orientada al acompañamiento estudiantil. Esta app permite la creación de un perfil estudiantil donde se pueden agregar datos relevantes como el nivel de carrera, las materias a cursar, y la carrera del estudiante. Su objetivo principal es conectar a estudiantes con intereses y datos afines, facilitando así la comunicación entre ellos. Mi rol en este proyecto fue de Dev-Designer. Como Diseñador UX/UI: Creación de la interfaz gráfica de la aplicación utilizando Figma, asegurando una experiencia de usuario intuitiva y atractiva. Como Desarrollador Frontend: Implementación de la interfaz gráfica de la aplicación utilizando Android Studio y Jetpack Compose, garantizando una experiencia fluida y coherente.',
-      tech: 'Android Studio, Kotlin, Jetpack Compose, Figma',
+      id: 'noctua',
       images: ['/noctua.png', '/noctua2.png', '/noctua3.png'],
-      links: [{ name: 'Figma', url: 'https://www.figma.com/design/0tox0tVxwUW1XTaB6uC8qC/Noctua-UCA-UI?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> }],
+      links: [
+        {
+          name: 'Figma',
+          url: 'https://www.figma.com/design/0tox0tVxwUW1XTaB6uC8qC/Noctua-UCA-UI?m=auto&t=t15u2x0egpeZruIy-1',
+          icon: <FaFigma />,
+        },
+      ],
     },
     {
-      title: 'Diseño de Sitio Web ACEUCA',
-      shortDesc: 'Diseño UX/UI para la gestión de préstamos de empleados de la UCA.',
-      fullDesc: 'Participé en el diseño del sitio web de la Asociación Cooperativa de Ahorro, Crédito y Consumo de Empleados de la Universidad Centroamericana José Simeón Cañas de R.L. (ACEUCA). Este sitio web está destinado a gestionar los préstamos para los empleados de la Universidad UCA, optimizando y facilitando el proceso. Mi rol como Diseñador UX/UI incluyó: Diseño integral de la interfaz gráfica utilizando Figma, abarcando todas las vistas necesarias para una experiencia de usuario intuitiva y eficiente. Colaboración estrecha con el equipo de desarrolladores para asegurar que el diseño se implementara de manera precisa y funcional.',
-      tech: 'Figma',
+      id: 'aceuca',
       images: ['/cuca.png', '/cuca2.png'],
-      links: [{ name: 'Figma', url: 'https://www.figma.com/design/HUpEd3UrDnuUH1g6ppo4m8/Prestamos-ACEUCA?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> }],
+      links: [
+        {
+          name: 'Figma',
+          url: 'https://www.figma.com/design/HUpEd3UrDnuUH1g6ppo4m8/Prestamos-ACEUCA?m=auto&t=t15u2x0egpeZruIy-1',
+          icon: <FaFigma />,
+        },
+      ],
     },
+    { id: 'todo', images: ['/todolist.png', '/todolist2.png'], links: [] },
     {
-      title: 'Sistema Web de Lista de Tareas',
-      shortDesc: 'Aplicación web para gestionar tareas con tres roles de usuario.',
-      fullDesc: 'Desarrollé una página web diseñada para la creación y gestión de listas de tareas, optimizada para mejorar la productividad y organización de sus usuarios. Este sistema cuenta con una estructura de tres roles distintos, uno de los cuales posee las atribuciones máximas dentro de la plataforma. Características clave: Creación y Gestión de Tareas, Roles de Usuario, y Visualización Intuitiva.',
-      tech: 'Vite, React, Node.js, Tailwind CSS, JavaScript',
-      images: ['/todolist.png', '/todolist2.png'],
-      links: [],
-    },
-    {
-      title: 'ORDINO',
-      shortDesc: 'Sistema web para gestión médica de clínicas privadas.',
-      fullDesc: 'Sistema web para gestionar clínicas, este sistema contiene gestión de pacientes, historial médico y gestión de usuarios del sistema, tiene 3 roles. Mi papel en este proyecto fue de Dev-Designer. Como Diseñador UX/UI: Creación de la interfaz gráfica de usuario en Figma de todas las vistas del sistema tanto para pantallas grandes como para pantallas móviles. Como Desarrollador Frontend: Creación de la interfaz gráfica del sistema.',
-      tech: 'Vite, React, Node.js, Tailwind CSS,, JavaScript, Figma',
+      id: 'ordino',
       images: ['/ordino.png', '/ordino2.png', '/ordino3.png'],
       links: [
-        { name: 'Figma', url: 'https://www.figma.com/design/RuM0YJIEcCLXceycux78Dn/Ordino-UI?m=auto&t=t15u2x0egpeZruIy-1', icon: <FaFigma /> },
+        {
+          name: 'Figma',
+          url: 'https://www.figma.com/design/RuM0YJIEcCLXceycux78Dn/Ordino-UI?m=auto&t=t15u2x0egpeZruIy-1',
+          icon: <FaFigma />,
+        },
       ],
     },
-
   ];
+
+  const projects = projectMeta.map((project) => ({
+    ...project,
+    ...t.portfolio.projects[project.id],
+  }));
 
   const nextImage = () => {
     if (selectedProject) {
@@ -113,7 +115,7 @@ export default function Portfolio() {
       className="py-20 bg-transparent"
       id="portfolio"
     >
-      <h2 className="text-4xl text-fut-gold text-center font-orbitron mb-12">Portafolio</h2>
+      <h2 className="text-4xl text-fut-gold text-center font-orbitron mb-12">{t.portfolio.title}</h2>
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 relative z-10">
         {projects.map((project, index) => (
           <motion.div
@@ -138,7 +140,7 @@ export default function Portfolio() {
             </h3>
             <p className="text-fut-offwhite mb-4">{project.shortDesc}</p>
             <p className="text-fut-gold text-sm italic flex items-center">
-              {project.tech} <span className="ml-2 text-xs opacity-70">Ver más →</span>
+              {project.tech} <span className="ml-2 text-xs opacity-70">{t.portfolio.viewMore}</span>
             </p>
           </motion.div>
         ))}
@@ -159,7 +161,7 @@ export default function Portfolio() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: '100vh', opacity: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
-              className="bg-fut-gray/90 p-8 rounded-xl max-w-3xl w-full mx-4 border-2 border-fut-gold/60 shadow-lg shadow-fut-gold/30 overflow-y-auto max-h-[90vh] z-50"
+              className="bg-fut-gray/90 p-8 rounded-xl max-w-3xl w-full mx-4 border-2 border-fut-gold/60 shadow-lg shadow-fut-gold/30 overflow-y-auto z-50 mt-20 md:mt-0 max-h-[calc(100vh-5rem)] md:max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-4">
@@ -246,7 +248,7 @@ export default function Portfolio() {
             >
               <img
                 src={fullScreenImage}
-                alt="Full screen project image"
+                alt={t.portfolio.fullscreenAlt}
                 className="max-w-full max-h-[90vh] object-contain rounded-lg"
               />
               <motion.button

@@ -2,6 +2,7 @@ import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { useCallback, useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Hero() {
   const canvasRef = useRef(null);
@@ -9,6 +10,7 @@ export default function Hero() {
   const buttonControls = useAnimation();
   const sectionControls = useAnimation();
   const { scrollY } = useScroll();
+  const { t } = useLanguage();
 
   // Controlar visibilidad de Hero según scroll
   const opacity = useTransform(scrollY, [0, 300], [1, 0]); // Desvanecer al bajar inicialmente
@@ -116,7 +118,7 @@ export default function Hero() {
           David Guevara
         </h1>
         <p className="text-xl md:text-2xl text-fut-offwhite mt-4">
-          Desarrollador Web | Visionario Digital
+          {t.hero.subtitle}
         </p>
         <motion.button
           animate={buttonControls}
@@ -125,7 +127,7 @@ export default function Hero() {
           onClick={handleExploreClick}
           className="mt-8 px-8 py-3 bg-fut-gold text-fut-black rounded-full font-semibold text-lg shadow-lg hover:shadow-fut-gold/70 transition-shadow"
         >
-          Explora mi trabajo.
+          {t.hero.cta}
         </motion.button>
       </motion.div>
     </motion.section>

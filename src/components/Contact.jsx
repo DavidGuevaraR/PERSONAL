@@ -2,11 +2,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaCheckCircle, FaTimesCircle, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ from_name: '', email: '', message: '' });
   const [isSending, setIsSending] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(null);
+  const { t } = useLanguage();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -53,7 +55,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-4xl text-fut-gold text-center font-orbitron mb-6"
         >
-          Contacto
+          {t.contact.title}
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 50 }}
@@ -62,7 +64,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="text-fut-offwhite text-center text-lg font-sans mb-12"
         >
-          ¿Tienes una idea o proyecto en mente? Envíame un mensaje o conéctate conmigo en mis redes sociales.
+          {t.contact.intro}
         </motion.p>
         <motion.form
           initial={{ opacity: 0, y: 50 }}
@@ -78,7 +80,7 @@ export default function Contact() {
               name="from_name"
               value={formData.from_name}
               onChange={handleChange}
-              placeholder="Nombre"
+              placeholder={t.contact.placeholders.name}
               required
               disabled={isSending}
               className="w-full p-4 bg-fut-gray border border-fut-gold/50 rounded-lg text-fut-offwhite focus:outline-none focus:border-fut-gold transition-colors disabled:opacity-50"
@@ -90,7 +92,7 @@ export default function Contact() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email"
+              placeholder={t.contact.placeholders.email}
               required
               disabled={isSending}
               className="w-full p-4 bg-fut-gray border border-fut-gold/50 rounded-lg text-fut-offwhite focus:outline-none focus:border-fut-gold transition-colors disabled:opacity-50"
@@ -101,7 +103,7 @@ export default function Contact() {
               name="message"
               value={formData.message}
               onChange={handleChange}
-              placeholder="Mensaje"
+              placeholder={t.contact.placeholders.message}
               required
               rows="5"
               disabled={isSending}
@@ -115,7 +117,7 @@ export default function Contact() {
             disabled={isSending}
             className="w-full p-4 bg-fut-gold text-fut-black rounded-full font-semibold disabled:bg-fut-gold/50 disabled:cursor-not-allowed"
           >
-            {isSending ? 'Enviando...' : 'Enviar'}
+            {isSending ? t.contact.sending : t.contact.send}
           </motion.button>
 
           {/* Overlay de carga */}
@@ -185,7 +187,7 @@ export default function Contact() {
                 )}
               </div>
               <p className={`text-center text-lg font-sans ${showConfirmation === 'success' ? 'text-fut-gold' : 'text-red-500'}`}>
-                {showConfirmation === 'success' ? '¡Mensaje enviado con éxito!' : 'Error al enviar el mensaje. Intenta de nuevo.'}
+                {showConfirmation === 'success' ? t.contact.success : t.contact.error}
               </p>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -193,7 +195,7 @@ export default function Contact() {
                 onClick={() => setShowConfirmation(null)}
                 className="mt-6 mx-auto block px-6 py-2 bg-fut-gold text-fut-black rounded-full font-semibold"
               >
-                Cerrar
+                {t.contact.close}
               </motion.button>
             </motion.div>
           </motion.div>
